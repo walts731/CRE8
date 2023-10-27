@@ -141,17 +141,58 @@
       </div>
     </div>
     <!-- products -->
-    <div class="col-md-2">
-      <h3 class="">hey</h3>
+    <div class="col-md-2 bg-secondary p-0">
+      <!-- brands -->
+      <ul class="navbar-nav me-auto text-center">
+        <li class="nav-item bg-info">
+          <a href="#" class="navlink text-light"><h4>BRANDS</h4></a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">BRAND1</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">BRAND2</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">BRAND3</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">BRAND4</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">BRAND5</a>
+        </li>
+      </ul>
+      <!-- categories -->
+      <ul class="navbar-nav me-auto text-center">
+        <li class="nav-item bg-info">
+          <a href="#" class="navlink text-light"><h4>CATEGORIES</h4></a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">CATEGORIES1</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">CATEGORIES2</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">CATEGORIES3</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">CATEGORIES4</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navlink text-light">CATEGORIES5</a>
+        </li>
+      </ul>
     </div>
     <!-- side nav -->
   </div>
 
-  <!-- last child--
+  <!-- last child -->
   <div class="bg-info p-3 text-center">
     <p>All rights reserved | CRUD 2023</p>
   </div>
-  -->
+  
     </div>
 </body>
     <!-- javascript link -->

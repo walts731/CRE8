@@ -1,3 +1,8 @@
+<?php
+include('../includes/connect.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,20 +40,32 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_categories" id="" class="form-select">
                     <option value="">Select Category</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
-                    <option value="">Category 4</option>
+                    <?php
+                    $select_query="Select * from `categories`";
+                    $result_query=mysqli_query($con,$select_query)
+                    while($row=mysqli_fetch_assoc($result_query)){
+                        $category_title=$row['category_title']
+                        $category_id=$row['category_id']
+                        echo "<option value='$category_id'> $category_title</option>";
+                    }
+
+                    ?>
                 </select>
             </div>
              <!-- brands -->
              <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brands" id="" class="form-select">
                     <option value="">Select Brands</option>
-                    <option value="">Brands 1</option>
-                    <option value="">Brands 2</option>
-                    <option value="">Brands 3</option>
-                    <option value="">Brands 4</option>
+                    <?php
+                    $select_query="Select * from `brands`";
+                    $result_query=mysqli_query($con,$select_query)
+                    while($row=mysqli_fetch_assoc($result_query)){
+                        $brand_title=$row['brand_title']
+                        $brand_id=$row['brand_id']
+                        echo "<option value='$brand_id'>$brand_title</option>";
+                    }
+
+                    ?>
                 </select>
             </div>
             <!-- Image 1 -->

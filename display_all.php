@@ -82,7 +82,7 @@ include('functions/common_function.php');
   <!-- fetching products -->
       <?php
       // calling function
-  getproducts();
+      get_all_products();
   get_unique_categories();
   get_unique_brands();
       ?>
@@ -120,6 +120,7 @@ getcategories();
   <!-- last child -->
   <!-- include footer -->
   <?php include("./includes/footer.php")?>  
+  
     </div>
 </body>
     <!-- javascript link -->

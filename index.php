@@ -86,6 +86,8 @@ include('functions/common_function.php');
   getproducts();
   get_unique_categories();
   get_unique_brands();
+  //$ip=getIPAdress();
+  //echo 'User Real IP Address - '.$ip;
       ?>
 
 <!-- row end -->

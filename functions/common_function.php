@@ -278,6 +278,25 @@ function view_details(){
 }
 }
 }
+
+// get ip address function
+function getIPAdress(){
+  // whether ip is from the share internet
+  if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+    $ip=$SERVER['HTTP_CLIENT_IP'];
+  }
+  //whether ip is from proxy
+  elseif(!empty($SERVER['HTTP_X_FORWARDED_FOR'])){
+    $ip=$SERVER['HTTP_X_FORWARDED_FOR'];
+  }
+  //whether ip is from the remote address
+  else{
+    $ip=$SERVER['REMOTE_ADDR'];
+  }
+  return $ip;
+}
+// $ip=getIPAdress();
+// echo 'User Real IP Address - '.$ip;
 ?>
 
 

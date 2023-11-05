@@ -9,7 +9,7 @@ include('functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRE8</title>
+    <title>CRE8 | cart details</title>
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- font awesome link -->
@@ -44,15 +44,7 @@ include('functions/common_function.php');
         <li class="nav-item">
           <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"><sup>1</sup></i></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Total price:<?php total_cart_price(); ?></a>
-        </li>
       </ul>
-      <form class="d-flex" action="search_product.php" method="get">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-        <!-- <button class="btn btn-outline-light" type="submit">Search</button> -->
-        <input type="submit" value="search" class="btn btn-outline-light" name="search_data_product">
-      </form>
     </div>
   </div>
 </nav>
@@ -79,50 +71,42 @@ include('functions/common_function.php');
     <p class="text-center">Where Style Meets Confidence!</p>
   </div>
 
-  <!-- fourth child -->
-  <div class="row">
-    <div class="col-md-10">
-      <!-- products -->
-      <div class="row">
-  <!-- fetching products -->
-      <?php
-      // calling function
-  getproducts();
-  get_unique_categories();
-  get_unique_brands();
-  //$ip=getIPAdress();
-  //echo 'User Real IP Address - '.$ip;
-      ?>
-
-<!-- row end -->
-</div>
-<!-- col end -->
-</div>
-    <div class="col-md-2 bg-secondary p-0">
-      <!-- brands -->
-      <ul class="navbar-nav me-auto text-center">
-        <li class="nav-item bg-info">
-          <a href="#" class="navlink text-light"><h4>BRANDS</h4></a>
-        </li>
-        <?php
-
-getbrands();
-        ?>
-      </ul>
-      <!-- categories -->
-      <ul class="navbar-nav me-auto text-center">
-        <li class="nav-item bg-info">
-          <a href="#" class="navlink text-light"><h4>CATEGORIES</h4></a>
-        </li>
-        <?php
-
-getcategories();
-        ?>
-        
-      </ul>
+  <!-- fourth child-table -->
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered text-centered">
+                <thead>
+                    <tr>
+                        <th>Product Title</th>
+                        <th>Product Image</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Remove</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dress</td>
+                        <td><img src="./img/dress.jpg" alt=""></td>
+                        <td><input type="text"></td>
+                        <td>300</td>
+                        <td><input type="checkbox"></td>
+                        <td>
+                            <p>Update</p>
+                            <p>Remove</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- subtotal -->
+            <div class="d-flex mb-5">
+                <h4 class="px-3">Subtotal:<strong class="text-info">300</strong></h4>
+                <a href="index.php"><button class="bg-info px-3 py-2 border-0 mx-3">Continue Shopping</button></a>
+                <a href="#"><button class="bg-secondary px-3 py-2 border-0 text-light">Checkout</button></a>
+            </div>
+        </div>
     </div>
-    <!-- side nav -->
-  </div>
 
   <!-- last child -->
   <!-- include footer -->

@@ -83,17 +83,7 @@ include('functions/common_function.php');
         <div class="row">
           <form action="" method="post">
             <table class="table table-bordered text-centered">
-                <thead>
-                    <tr>
-                        <th>Product Title</th>
-                        <th>Product Image</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                        <th>Remove</th>
-                        <th colspan="2">Operations</th>
-                    </tr>
-                </thead>
-                <tbody>
+                
                     <!-- php code to display dynamic data -->
                     <?php
                         global $con;
@@ -101,6 +91,20 @@ include('functions/common_function.php');
                         $total_price=0;
                         $cart_query="Select * from `cart_details` where ip_address='$get_ip_add'";
                         $result=mysqli_query($con, $cart_query);
+                        $result_count=mysqli_num_rows($result);
+                        if($result_count>0){
+                          echo "<thead>
+                          <tr>
+                              <th>Product Title</th>
+                              <th>Product Image</th>
+                              <th>Quantity</th>
+                              <th>Total Price</th>
+                              <th>Remove</th>
+                              <th colspan='2'>Operations</th>
+                          </tr>
+                      </thead>
+                      <tbody>";
+
                         while($row=mysqli_fetch_array($result)){
                           $product_id=$row['product_id'];
                           $select_products="Select * from `products` where product_id='$product_id'";
@@ -139,16 +143,35 @@ include('functions/common_function.php');
                         </td>
                     </tr>
                     <?php
+                          }
                     }
+                }
+                else{
+                  echo "<h2 class='text-center text-danger'>Cart is empty</h2>";
                 }
                     ?>
                 </tbody>
             </table>
             <!-- subtotal -->
             <div class="d-flex mb-5">
-                <h4 class="px-3">Subtotal:<strong class="text-info"><?php echo $total_price?></strong></h4>
-                <a href="index.php"><button class="bg-info px-3 py-2 border-0 mx-3">Continue Shopping</button></a>
-                <a href="#"><button class="bg-secondary px-3 py-2 border-0 text-light">Checkout</button></a>
+              <?php
+               $get_ip_add=getIPAddress(); 
+               $cart_query="Select * from `cart_details` where ip_address='$get_ip_add'";
+               $result=mysqli_query($con, $cart_query);
+               $result_count=mysqli_num_rows($result);
+               if($result_count>0){
+                echo "<h4 class='px-3'>Subtotal:<strong class='text-info'>$total_price</strong></h4>
+                <input type='submit' value='Continue Shopping' class='bg-info px-3 py-2 border-0 mx-3' name='continue_shopping'>
+                <a href=''><button class='bg-secondary px-3 py-2 border-0 text-light'>Checkout</button></a>";
+               }else{
+                echo "<input type='submit' value='Continue Shopping' class='bg-info px-3 py-2 border-0 mx-3' name='continue_shopping'>";
+               }
+               if(isset($_POST['continue_shopping'])){
+                echo "<script>window.open('index.php', '_self')</script>";
+               }
+
+              ?>
+                
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <!-- connect file-->
 <?php
-include('includes/connect.php');
+include('../includes/connect.php');
 
 ?>
 
@@ -23,7 +23,7 @@ include('includes/connect.php');
         <!-- first child -->
         <nav class="navbar navbar-expand-lg bg-info">
   <div class="container-fluid">
-    <img src="./img/C100.png" alt="" class="logo">
+    <img src="../img/C100.png" alt="" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,7 +76,7 @@ include('includes/connect.php');
       <div class="row">
         <?php
         if(!isset($_SESSION['username'])){
-            include('users_area/user_login.php');
+            include('user_login.php');
         }else{
             include('payment.php');
         }
@@ -90,7 +90,7 @@ include('includes/connect.php');
 
   <!-- last child -->
   <!-- include footer -->
-  <?php include("./includes/footer.php")?>  
+  <?php include("../includes/footer.php")?>  
     </div>
 </body>
     <!-- javascript link -->

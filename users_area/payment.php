@@ -10,8 +10,6 @@ include('../functions/common_function.php');
     <title>Payment page</title>
      <!-- bootstrap css link -->
      <link rel="stylesheet" href="../css/bootstrap.css">
-    <!-- userdefinedstyle css --> 
-    <link rel="stylesheet" href="../userdefinedstyle.css">
 </head>
 <style>
     .payment_img{
@@ -25,8 +23,8 @@ include('../functions/common_function.php');
     <?php
         $user_ip=getIPAddress();
         $get_user="Select * from `user_table` where user_ip='$user_ip'";
-        $result=mysqli_query($con,$get_user);
-        $run_query=mysqli_fetch_array($result);
+        $result_user=mysqli_query($con,$get_user);
+        $run_query=mysqli_fetch_array($result_user);
         $user_id=$run_query['user_id'];
     ?>
     <div class="container">

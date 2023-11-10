@@ -62,10 +62,10 @@ if(isset($_POST['user_login'])){
     $result=mysqli_query($con,$select_query);
     $row_count=mysqli_num_rows($result);
     $row_data=mysqli_fetch_assoc($result);
-    $user_ip=getIPAddress();
+    $user_ip_address=getIPAddress();
 
     // cart item
-    $select_query_cart="Select * from `cart_details` where ip_address='$user_ip'";
+    $select_query_cart="Select * from `cart_details` where ip_address='$user_ip_address'";
     $select_cart=mysqli_query($con,$select_query_cart);
     $row_count_cart=mysqli_num_rows($select_cart);
     if($row_count>0){

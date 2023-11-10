@@ -110,23 +110,30 @@ session_start();
           <li class="nav-item bg-info">
           <a class="nav-link text-light" href="#"><h4>Your Profile</h4></a>
           </li>
+          <?php
+            $username=$_SESSION['username'];
+            $user_image="Select * from `user_table` where username='$username'";
+            $user_image=mysqli_query($con,$user_image);
+            $row_image=mysqli_fetch_array($user_image);
+            $user_image=$row_image['user_image'];
+            echo "<li class='nav-item'>
+            <img src='./user_images/$user_image' class='profile_img my-4' alt=''>
+            </li>";
+          ?>
           <li class="nav-item">
-          <img src="../img/WALTS.png" class="profile_img my-4" alt="">
+          <a class="nav-link text-light" href="profile.php">Pending orders</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link text-light" href="#">Pending orders</a>
+          <a class="nav-link text-light" href="profile.php?edit_account">Edit Account</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link text-light" href="#">Edit Account</a>
+          <a class="nav-link text-light" href="profile.php?my_orders">My orders</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link text-light" href="#">My orders</a>
+          <a class="nav-link text-light" href="profile.php?delete_account">Delete Account</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link text-light" href="#">Delete Account</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link text-light" href="#">Logout</a>
+          <a class="nav-link text-light" href="logout.php">Logout</a>
           </li>
           </ul>
     </div>

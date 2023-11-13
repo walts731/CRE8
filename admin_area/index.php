@@ -13,6 +13,9 @@
             position: absolute;
             bottom: 0;
         }
+        body{
+            overflow-x: hidden;
+        }
     </style>
     <!-- font awesome link --> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -49,7 +52,7 @@
                 <div class="button text-center">
                     <button class="my-3"><a href="insert_product.php" class="nav-link text-light
                      bg-info my-1">Insert Products</a></button>
-                    <button><a href="" class="nav-link text-light
+                    <button><a href="index.php?view_products" class="nav-link text-light
                      bg-info my-1">View Products</a></button>
                     <button><a href="index.php?insert_category" class="nav-link text-light
                      bg-info my-1">Insert Categories</a></button>
@@ -80,12 +83,14 @@
             if(isset($_GET['insert_brand'])){
                 include('insert_brands.php');
             }
+            if(isset($_GET['view_products'])){
+                include('view_products.php');
+            }
             ?>
         </div>
          <!-- last child -->
-  <div class="bg-info p-3 text-center footer">
-    <p>All rights reserved | CRUD 2023</p>
-  </div>
+  <!-- include footer -->
+  <?php include("../includes/footer.php")?>
     </div>
 
     <!-- bootstrap js link -->

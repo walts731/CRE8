@@ -10,6 +10,20 @@
         $invoice_number=$row_fetch['invoice_number'];
         $amount_due=$row_fetch['amount_due'];
     }
+     // store to confirm payment table
+    if(isset($_POST['confirm_payment'])){
+        $invoice_number=$_POST['invoice_number'];
+        $amount=$_POST['amount'];
+        $payment_mode=$_POST['payment_mode'];
+        $insert_query="Insert into `user_payments` (order_id,invoice_number,amount,payment_mode) values ($order_id,$invoice_number,$amount,'$payment_mode')";
+        $result_insert=mysqli_query($con,$insert_query);
+        if($result_insert){
+            echo "<h3 class='text-center text-light'>Successfully completed the payment</h3>";
+            echo "<script>window.open('profile.php?my_orders','_self')</script>"; 
+        }
+        $update_orders="Update `user_orders` set order_status='Complete' where order_id=$order_id";
+        $result_orders=mysqli_query($con,$update_orders);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

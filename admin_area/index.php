@@ -59,18 +59,18 @@ session_start();
                     <a href="#"><img src="../img/WALTS.png" alt="" class="admin_image"></a>
                     <p class="text-light text-center">Admin Name</p>
                 </div>
-                <div class="button text-center">
+                <div class="button text-center m-auto">
                     <button class="my-3"><a href="insert_product.php" class="nav-link text-light
                      bg-info my-1">Insert Products</a></button>
                     <button><a href="index.php?view_products" class="nav-link text-light
                      bg-info my-1">View Products</a></button>
                     <button><a href="index.php?insert_category" class="nav-link text-light
                      bg-info my-1">Insert Categories</a></button>
-                    <button><a href="" class="nav-link text-light
+                    <button><a href="index.php?view_categories" class="nav-link text-light
                      bg-info my-1">View Categories</a></button>
                     <button><a href="index.php?insert_brand" class="nav-link text-light
                      bg-info my-1">Insert Brands</a></button>
-                    <button><a href="" class="nav-link text-light
+                    <button><a href="index.php?view_brands" class="nav-link text-light
                      bg-info my-1">View Brands</a></button>
                     <button><a href="" class="nav-link text-light
                      bg-info my-1">All orders</a></button>
@@ -98,6 +98,12 @@ session_start();
             }
             if(isset($_GET['edit_products'])){
                 include('edit_products.php');
+            }
+            if(isset($_GET['view_categories'])){
+                include('view_categories.php');
+            }
+            if(isset($_GET['view_brands'])){
+                include('view_brands.php');
             }
             ?>
         </div>

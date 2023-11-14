@@ -17,7 +17,6 @@
                 <th>Total Sold</th>
                 <th>Status</th>
                 <th>Edit</th>
-                <th>Delete</th>
             </tr>
         </thead>
         <tbody class="bg-secondary text-light">
@@ -46,7 +45,6 @@
                     ?></td>
                     <td><?php echo $status ?></td>
                     <td><a href='index.php?edit_products=<?php echo $product_id ?>'><i class='fa-solid fa-pen-to-square'></i></a></td>
-                    <td><a href=''><i class='fa-solid fa-trash'></i></a></td>
                 </tr>
                 <?php
                 }

@@ -20,7 +20,7 @@
         <tr>
             <td><?php echo $number ?></td>
             <td><?php echo $brand_title ?></td>
-            <td><a href=''><i class='fa-solid fa-pen-to-square'></i></a></td>
+            <td><a href='index.php?edit_brands=<?php echo $brand_id ?>'><i class='fa-solid fa-pen-to-square'></i></a></td>
         </tr>
         <?php
             }

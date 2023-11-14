@@ -1,3 +1,9 @@
+<!-- connect file-->
+<?php
+include('../includes/connect.php');
+include('../functions/common_function.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +21,10 @@
         }
         body{
             overflow-x: hidden;
+        }
+        .product_img{
+            width: 50px;
+            object-fit:contain;
         }
     </style>
     <!-- font awesome link --> 

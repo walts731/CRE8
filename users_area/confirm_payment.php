@@ -38,13 +38,10 @@
     <h1 class="text-center text-light">Confirm Payment</h1>
     <div class="container my-5">
         <form action="" method="post">
+        <div class="form-outline my-4 text-center w-50 m-auto">
             <div class="form-outline my-4 text-center w-50 m-auto">
             <label for="" class="text-light">Invoice Number</label>
                 <input type="text" class="form-control w-50 m-auto" name="invoice_number" value="<?php echo $invoice_number ?>">
-            </div>
-            <div class="form-outline my-4 text-center w-50 m-auto">
-                <label for="" class="text-light">Amount</label>
-                <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $amount_due ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">
@@ -53,6 +50,10 @@
                     <option>Cash on delivery</option>
                     <option>Pay offline</option>
                 </select>
+            </div>
+            <div class="form-outline my-4 text-center w-50 m-auto">
+                <label for="" class="text-light">Amount</label>
+                <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $amount_due ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <input type="submit" class="bg-info py-2 px-3 border-0" value="Confirm" name="confirm_payment">

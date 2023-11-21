@@ -24,8 +24,9 @@
             <th>Total products</th>
             <th>Invoice Number</th>
             <th>Date</th>
+            <th>Order Status</th>
             <th>Complete/Incomplete</th>
-            <th>Status</th>
+            <th>Payment Status</th>
         </tr>
         </thead>
         <tbody class="bg-secondary text-light">
@@ -35,7 +36,7 @@
                 $number=1; // para magiterate serial number
                 while($row_orders=mysqli_fetch_assoc($result_orders)){
                     $order_id=$row_orders['order_id'];
-                    $amount_due=$row_orders['order_id'];
+                    $amount_due=$row_orders['amount_due'];
                     $total_products=$row_orders['total_products'];
                     $invoice_number=$row_orders['invoice_number'];
                     $order_status=$row_orders['order_status'];
@@ -52,6 +53,7 @@
                     <td>$total_products</td>
                     <td>$invoice_number</td>
                     <td>$order_date</td>
+                    <td><a href='order_status.php?order_id=$order_id'><i class='fa fa-eye'></i></a></td>
                     <td>$order_status</td>";
                     ?>
                     <?php
@@ -63,6 +65,7 @@
                         }
                 $number++;
                 }
+
             ?>
         </tbody>
     </table>

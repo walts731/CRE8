@@ -14,6 +14,7 @@
                 <th>Product Title</th>
                 <th>Product Image</th>
                 <th>Product Price</th>
+                <th>Stock</th>
                 <th>Total Sold</th>
                 <th>Status</th>
                 <th>Edit</th>
@@ -27,6 +28,7 @@
                 while($row=mysqli_fetch_assoc($result)){
                     $product_id=$row['product_id'];
                     $product_title=$row['product_title'];
+                    $stock=$row['stock'];
                     $product_image1=$row['product_image1'];
                     $product_price=$row['product_price'];
                     $status=$row['status'];
@@ -37,6 +39,7 @@
                     <td> <?php echo $product_title ?></td>
                     <td><img src='./product_images/<?php echo $product_image1 ?>' class='product_img'/></td>
                     <td><?php echo $product_price ?></td>
+                    <td><?php echo $stock ?></td>
                     <td><?php
                         $get_count="Select * from `orders_pending` where product_id=$product_id";
                         $result_count=mysqli_query($con,$get_count);

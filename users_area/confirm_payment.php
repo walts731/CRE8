@@ -1,6 +1,13 @@
 <?php
     include('../includes/connect.php');
     session_start();
+    $user_session_name=$_SESSION['username'];
+        $select_query="Select * from `user_table` where username='$user_session_name'";
+        $result_query=mysqli_query($con,$select_query);
+        $row_fetch=mysqli_fetch_assoc($result_query);
+        $user_address=$row_fetch['user_address'];
+        $user_mobile=$row_fetch['user_mobile'];
+
     if(isset($_GET['order_id'])){
         $order_id=$_GET['order_id'];
         //echo $order_id;
@@ -15,7 +22,7 @@
         $invoice_number=$_POST['invoice_number'];
         $amount=$_POST['amount'];
         $payment_mode=$_POST['payment_mode'];
-        $insert_query="Insert into `user_payments` (order_id,invoice_number,amount,payment_mode) values ($order_id,$invoice_number,$amount,'$payment_mode')";
+        $insert_query="Insert into `user_payments` (order_id,invoice_number,amount,delivery_address,contact,payment_mode) values ($order_id,$invoice_number,$amount,'$user_address',$user_mobile,'$payment_mode')";
         $result_insert=mysqli_query($con,$insert_query);
         if($result_insert){
             echo "<h3 class='text-center text-light'>Successfully completed the payment</h3>";
@@ -48,8 +55,15 @@
                     <option>Select Payment mode</option>
                     <option>Gcash</option>
                     <option>Cash on delivery</option>
-                    <option>Pay offline</option>
                 </select>
+            </div>
+            <div class="form-outline my-4 text-center w-50 m-auto">
+                <label for="" class="text-light">Delivery address</label>
+                <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $user_address ?>">
+            </div>
+            <div class="form-outline my-4 text-center w-50 m-auto">
+                <label for="" class="text-light">Contact Number</label>
+                <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $user_mobile ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <label for="" class="text-light">Amount</label>

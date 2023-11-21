@@ -8,6 +8,7 @@
         $product_title=$row['product_title'];
         $product_description=$row['product_description'];
         $product_keywords=$row['product_keywords'];
+        $stock=$row['stock'];
         $category_id=$row['category_id'];
         $brand_id=$row['brand_id'];
         $product_image1=$row['product_image1'];
@@ -44,6 +45,10 @@
         <div class="form-outline w-50 m-auto mb-4">
             <label for="product_keywords" class="form-label">Product Keywords</label>
             <input type="text" id="product_keywords" value="<?php echo $product_keywords ?>" name="product_keywords" class="form-control" required="required">
+        </div>
+        <div class="form-outline w-50 m-auto mb-4">
+            <label for="stock" class="form-label">Stocks</label>
+            <input type="text" id="stock" value="<?php echo $stock ?>" name="stock" class="form-control" required="required">
         </div>
         <div class="form-outline w-50 m-auto mb-4">
         <label for="product_category" class="form-label">Product Categories</label>
@@ -112,6 +117,7 @@
         $product_title=$_POST['product_title'];
         $product_description=$_POST['product_description'];
         $product_keywords=$_POST['product_keywords'];
+        $stock=$_POST['stock'];
         $product_category=$_POST['product_category'];
         $product_brands=$_POST['product_brands'];
         $product_price=$_POST['product_price'];
@@ -133,7 +139,7 @@
             move_uploaded_file($temp_image3,"./product_images/$product_image3");
 
             // query to update products
-            $update_products="Update `products` set product_title='$product_title',product_description='$product_description',product_keywords='$product_keywords',category_id='$product_category',brand_id='$product_brands',product_image1='$product_image1',product_image2='$product_image2',product_image3='$product_image3',product_price='$product_price',date=NOW() where product_id=$edit_id";
+            $update_products="Update `products` set product_title='$product_title',product_description='$product_description',product_keywords='$product_keywords'stock='$stock',category_id='$product_category',brand_id='$product_brands',product_image1='$product_image1',product_image2='$product_image2',product_image3='$product_image3',product_price='$product_price',date=NOW() where product_id=$edit_id";
             $result_update=mysqli_query($con,$update_products);
             if($result_update){
                 echo "<script>alert('Product updated successfully!')</script>";

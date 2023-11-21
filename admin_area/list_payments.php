@@ -14,8 +14,12 @@
             <th>S1. no</th>
             <th>Invoice number</th>
             <th>Amount</th>
+            <th>Delivery Address</th>
+            <th>Contact number</th>
             <th>Payment mode</th>
             <th>Order date</th>
+            <th>Paid Order Status</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>";
@@ -24,16 +28,23 @@
             $order_id=$row_data['order_id'];
             $payment_id=$row_data['payment_id'];
             $amount=$row_data['amount'];
+            $delivery_address=$row_data['delivery_address'];
+            $contact=$row_data['contact'];
             $invoice_number=$row_data['invoice_number'];
             $payment_mode=$row_data['payment_mode'];
             $date=$row_data['date'];
+            $status=$row_data['order_payment_status'];
             $number++;
             echo "<tr class='m-auto'>
             <td>$number</td>
             <td>$invoice_number</td>
             <td>$amount</td>
+            <td>$delivery_address</td>
+            <td>$contact</td>
             <td>$payment_mode</td>
             <td>$date</td>
+            <td>$status</td>
+            <td><a href='payment_action.php?payment_id=$payment_id'><i class='fa fa-tasks'></i></a></td>
         </tr>";
         }
     }

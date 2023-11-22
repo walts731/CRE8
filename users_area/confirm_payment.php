@@ -16,6 +16,10 @@
         $row_fetch=mysqli_fetch_assoc($result);
         $invoice_number=$row_fetch['invoice_number'];
         $amount_due=$row_fetch['amount_due'];
+        $select_pending="Select * from `orders_pending` where order_id=$order_id";
+        $result_pending=mysqli_query($con,$select_pending);
+        $row=mysqli_fetch_assoc($result_pending);
+        $product_id=$row['product_id'];
     }
      // store to confirm payment table
     if(isset($_POST['confirm_payment'])){
@@ -30,6 +34,12 @@
         }
         $update_orders="Update `user_orders` set order_status='Complete' where order_id=$order_id";
         $result_orders=mysqli_query($con,$update_orders);
+        $update_payments="Update `user_payments` set order_payment_status='Pending' where order_id=$order_id";
+        $result_payments=mysqli_query($con,$update_payments);
+        $empty_pending="Delete from `orders_pending` where order_id=$order_id";
+        $result_delete=mysqli_query($con,$empty_pending);
+        $update_order_item="Insert into `order_item` (order_id,product_id) values ($order_id,$product_id)";
+        $result_order_item=mysqli_query($con,$update_order_item);
     }
 ?>
 <!DOCTYPE html>

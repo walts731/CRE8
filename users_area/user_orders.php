@@ -24,9 +24,9 @@
             <th>Total products</th>
             <th>Invoice Number</th>
             <th>Date</th>
-            <th>Order Status</th>
             <th>Complete/Incomplete</th>
             <th>Payment Status</th>
+            <th>Order Status</th>
         </tr>
         </thead>
         <tbody class="bg-secondary text-light">
@@ -53,19 +53,22 @@
                     <td>$total_products</td>
                     <td>$invoice_number</td>
                     <td>$order_date</td>
-                    <td><a href='order_status.php?order_id=$order_id'><i class='fa fa-eye'></i></a></td>
                     <td>$order_status</td>";
                     ?>
                     <?php
                         if($order_status=='Complete'){
-                            echo "<td>Paid</td>";
+                            echo "<td>Confirmed</td>";
                         }else{
-                            echo "<td><a href='confirm_payment.php?order_id=$order_id' class='text-dark text-decoration-none'>Confirm</a></td>
+                            echo "<td><a href='confirm_payment.php?order_id=$order_id' class='text-light bg-info text-decoration-none rounded-pill p-2'>Confirm</a></td>
                             </tr>";
                         }
                 $number++;
+                    if($order_status=='Incomplete'){
+                        echo '';
+                    }else{
+                        echo "<td><a href='order_status.php?order_id=$order_id'><i class='fa fa-eye'></i></a></td>";
+                    }
                 }
-
             ?>
         </tbody>
     </table>

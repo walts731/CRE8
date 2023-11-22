@@ -48,7 +48,7 @@ if(isset($_GET['payment_id'])){
                     <option>Select Order Status</option>
                     <option>Pending</option>
                     <option>On the Way</option>
-                    <option>Cancel</option>
+                    <option>Cancelled</option>
                     <option>Delivered</option>
                 </select>
             </div>
